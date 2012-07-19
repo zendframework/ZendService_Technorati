@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class GetInfoResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\GetInfoResult', array($this->dom));
+        $this->_testConstruct('ZendService\Technorati\GetInfoResult', array($this->dom));
     }
 
     public function testGetInfoResult()
@@ -37,13 +37,13 @@ class GetInfoResultTest extends TestCase
 
         // check author
         $author = $object->getAuthor();
-        $this->assertInstanceOf('Zend\Service\Technorati\Author', $author);
+        $this->assertInstanceOf('ZendService\Technorati\Author', $author);
         $this->assertEquals('weppos', $author->getUsername());
 
         // check weblogs
         $weblogs = $object->getWeblogs();
         $this->assertInternalType('array', $weblogs);
         $this->assertEquals(2, count($weblogs));
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $weblogs[0]);
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $weblogs[0]);
     }
 }

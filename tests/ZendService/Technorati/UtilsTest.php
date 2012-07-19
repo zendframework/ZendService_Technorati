@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 use DateTime;
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -39,7 +39,7 @@ class UtilsTest extends TestCase
         $inputInvalidScheme = "$scheme://example.com";
         try {
             Technorati\Utils::normalizeUriHttp($inputInvalidScheme);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains($scheme, $e->getMessage());
         }
@@ -73,7 +73,7 @@ class UtilsTest extends TestCase
         $inputInvalid = "2007foo";
         try {
             Technorati\Utils::normalizeDate($inputInvalid);
-            $this->fail('Expected Zend\Service\Technorati\Exception\RuntimeException not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception\RuntimeException not thrown');
         } catch (\Exception $e) {
             $this->assertContains($inputInvalid, $e->getMessage());
         }

@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class CosmosResultSetTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\CosmosResultSet', array($this->dom));
+        $this->_testConstruct('ZendService\Technorati\CosmosResultSet', array($this->dom));
     }
 
     public function testCosmosResultSet()
@@ -48,16 +48,16 @@ class CosmosResultSetTest extends TestCase
         $this->assertEquals(278, $object->getInboundLinks());
 
         // check weblog
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $object->getWeblog());
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $object->getWeblog());
         $this->assertEquals('Simone Carletti\'s Blog', $object->getWeblog()->getName());
     }
 
     public function testCosmosResultSetItemsInstanceOfResult()
     {
         $this->_testResultSetItemsInstanceOfResult(
-                    'Zend\Service\Technorati\CosmosResultSet',
+                    'ZendService\Technorati\CosmosResultSet',
                     array($this->dom),
-                    'Zend\Service\Technorati\CosmosResult');
+                    'ZendService\Technorati\CosmosResult');
     }
 
     public function testCosmosResultSetSerialization()

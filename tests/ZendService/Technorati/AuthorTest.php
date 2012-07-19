@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class AuthorTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\Author', array($this->domElement));
+        $this->_testConstruct('ZendService\Technorati\Author', array($this->domElement));
     }
 
     public function testAuthor()
@@ -109,7 +109,7 @@ class AuthorTest extends TestCase
         $author = new Technorati\Author($this->domElement);
 
         $set = 'http:::/foo';
-        $this->setExpectedException('Zend\Service\Technorati\Exception\RuntimeException', 'invalid URI');
+        $this->setExpectedException('ZendService\Technorati\Exception\RuntimeException', 'invalid URI');
         $author->setThumbnailPicture($set);
     }
 }

@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class TagsResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\TagsResult', array($this->domElements->item(0)));
+        $this->_testConstruct('ZendService\Technorati\TagsResult', array($this->domElements->item(0)));
     }
 
     public function testTagsResult()

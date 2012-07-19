@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 use DateTime;
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -29,7 +29,7 @@ class CosmosResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\CosmosResult', array($this->domElements->item(0)));
+        $this->_testConstruct('ZendService\Technorati\CosmosResult', array($this->domElements->item(0)));
     }
 
     public function testCosmosResultSerialization()
@@ -42,7 +42,7 @@ class CosmosResultTest extends TestCase
         $domElements = self::getTestFileElementsAsDom('TestCosmosResultSetSiteLink.xml');
         $object = new Technorati\CosmosResult($domElements->item(0));
 
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $object->getWeblog());
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $object->getWeblog());
         $this->assertContains('Gioxx', $object->getWeblog()->getName());
 
         $this->assertInstanceOf('Zend\Uri\Http', $object->getNearestPermalink());
@@ -79,7 +79,7 @@ class CosmosResultTest extends TestCase
         $domElements = self::getTestFileElementsAsDom('TestCosmosResultSetSiteWeblog.xml');
         $object = new Technorati\CosmosResult($domElements->item(0));
 
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $object->getWeblog());
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $object->getWeblog());
         $this->assertContains('Simone Carletti', $object->getWeblog()->getName());
 
         $this->assertInstanceOf('Zend\Uri\Http', $object->getLinkUrl());

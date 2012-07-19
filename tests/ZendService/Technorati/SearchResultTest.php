@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 use DateTime;
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -29,7 +29,7 @@ class SearchResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\SearchResult', array($this->domElements->item(0)));
+        $this->_testConstruct('ZendService\Technorati\SearchResult', array($this->domElements->item(0)));
     }
 
     public function testSearchResult()
@@ -47,7 +47,7 @@ class SearchResultTest extends TestCase
         $this->assertEquals(new DateTime('2007-11-14 22:18:04 GMT'), $object->getCreated());
 
         // check weblog
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $object->getWeblog());
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $object->getWeblog());
         $this->assertContains('Mi otro blog', $object->getWeblog()->getName());
     }
 

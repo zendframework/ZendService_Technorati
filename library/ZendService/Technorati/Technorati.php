@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Technorati;
+namespace ZendService\Technorati;
 
 use DomDocument;
 use Zend\Http\Response as HttpResponse;
@@ -16,7 +16,7 @@ use Zend\Http\Client as HttpClient;
 use Zend\Http\Request as HttpRequest;
 
 /**
- * Zend\Service\Technorati provides an easy, intuitive and object-oriented interface
+ * ZendService\Technorati provides an easy, intuitive and object-oriented interface
  * for using the Technorati API.
  *
  * It provides access to all available Technorati API queries
@@ -60,7 +60,7 @@ class Technorati
     protected $httpClient;
 
     /**
-     * Constructs a new Zend\Service\Technorati instance
+     * Constructs a new ZendService\Technorati instance
      * and setup character encoding.
      *
      * @param  string $apiKey  Your Technorati API key
@@ -795,7 +795,7 @@ class Technorati
 
     /**
      * Checks whether 'format' option value is valid.
-     * Be aware that Zend\Service\Technorati supports only XML as format value.
+     * Be aware that ZendService\Technorati supports only XML as format value.
      *
      * @param   array $options
      * @return  void
@@ -807,7 +807,7 @@ class Technorati
         if (isset($options['format']) && $options['format'] != 'xml') {
             throw new Exception\RuntimeException(
                         "Invalid value '" . $options['format'] . "' for 'format' option. " .
-                        "Zend\Service\Technorati supports only 'xml'");
+                        "ZendService\Technorati supports only 'xml'");
         }
     }
 

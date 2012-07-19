@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 use DateTime;
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -29,7 +29,7 @@ class DailyCountsResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\CosmosResult', array($this->domElements->item(0)));
+        $this->_testConstruct('ZendService\Technorati\CosmosResult', array($this->domElements->item(0)));
     }
 
     public function testDailyCountsResult()

@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 use DateTime;
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -29,7 +29,7 @@ class TagResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\TagResult', array($this->domElements->item(0)));
+        $this->_testConstruct('ZendService\Technorati\TagResult', array($this->domElements->item(0)));
     }
 
     public function testTagResult()
@@ -49,7 +49,7 @@ class TagResultTest extends TestCase
         $this->assertEquals(new DateTime('2007-11-14 21:57:59'), $object->getUpdated());
 
         // check weblog
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $object->getWeblog());
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $object->getWeblog());
         $this->assertEquals(' ScienceRoll', $object->getWeblog()->getName());
     }
 

@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 /**
  * @category   Zend
@@ -29,7 +29,7 @@ class ResultSetTest extends TestCase
      */
     public function setUp()
     {
-        $this->ref = new \ReflectionClass('Zend\Service\Technorati\AbstractResultSet');
+        $this->ref = new \ReflectionClass('ZendService\Technorati\AbstractResultSet');
         $this->dom = self::getTestFileContentAsDom('TestSearchResultSet.xml');
         $this->object = new Technorati\SearchResultSet($this->dom);
         $this->objectRef = new \ReflectionObject($this->object);

@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 /**
  * Patch for default timezone in PHP >= 5.1.0

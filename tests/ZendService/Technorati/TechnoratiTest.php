@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -51,7 +51,7 @@ class TechnoratiTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\Technorati', array(self::TEST_APY_KEY));
+        $this->_testConstruct('ZendService\Technorati\Technorati', array(self::TEST_APY_KEY));
     }
 
     public function testApiKeyMatches()
@@ -73,10 +73,10 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestCosmosSuccess.xml')->cosmos(self::TEST_PARAM_COSMOS);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\CosmosResultSet', $result);
+        $this->assertInstanceOf('ZendService\Technorati\CosmosResultSet', $result);
         $this->assertEquals(2, $result->totalResults());
         $result->seek(0);
-        $this->assertInstanceOf('Zend\Service\Technorati\CosmosResult', $result->current());
+        $this->assertInstanceOf('ZendService\Technorati\CosmosResult', $result->current());
         // content is validated in Zend_Service_Technorati_CosmosResultSet tests
     }
 
@@ -84,7 +84,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestCosmosError.xml')->cosmos(self::TEST_PARAM_COSMOS);
-            $this->fail('Expected Zend\Service\Technorati\Exception\RuntimeException not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception\RuntimeException not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Invalid request: url is required", $e->getMessage());
         }
@@ -136,10 +136,10 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestSearchSuccess.xml')->search(self::TEST_PARAM_SEARCH);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\SearchResultSet', $result);
+        $this->assertInstanceOf('ZendService\Technorati\SearchResultSet', $result);
         $this->assertEquals(2, $result->totalResults());
         $result->seek(0);
-        $this->assertInstanceOf('Zend\Service\Technorati\SearchResult', $result->current());
+        $this->assertInstanceOf('ZendService\Technorati\SearchResult', $result->current());
         // content is validated in Zend_Service_Technorati_SearchResultSet tests
     }
 
@@ -150,7 +150,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestSearchError.xml')->cosmos(self::TEST_PARAM_COSMOS);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Zend_Service_Technorati_Exception $e) {
             $this->assertContains("Invalid request: url is required", $e->getMessage());
         }
@@ -199,10 +199,10 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestTagSuccess.xml')->tag(self::TEST_PARAM_TAG);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\TagResultSet', $result);
+        $this->assertInstanceOf('ZendService\Technorati\TagResultSet', $result);
         $this->assertEquals(2, $result->totalResults());
         $result->seek(0);
-        $this->assertInstanceOf('Zend\Service\Technorati\TagResult', $result->current());
+        $this->assertInstanceOf('ZendService\Technorati\TagResult', $result->current());
         // content is validated in Zend_Service_Technorati_TagResultSet tests
     }
 
@@ -210,7 +210,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestTagError.xml')->tag(self::TEST_PARAM_TAG);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Invalid request.", $e->getMessage());
         }
@@ -256,10 +256,10 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestDailyCountsSuccess.xml')->dailyCounts(self::TEST_PARAM_DAILYCOUNT);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\DailyCountsResultSet', $result);
+        $this->assertInstanceOf('ZendService\Technorati\DailyCountsResultSet', $result);
         $this->assertEquals(180, $result->totalResults());
         $result->seek(0);
-        $this->assertInstanceOf('Zend\Service\Technorati\DailyCountsResult', $result->current());
+        $this->assertInstanceOf('ZendService\Technorati\DailyCountsResult', $result->current());
         // content is validated in Zend_Service_Technorati_DailyCountsResultSet tests
     }
 
@@ -267,7 +267,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestDailyCountsError.xml')->dailyCounts(self::TEST_PARAM_DAILYCOUNT);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Missing required parameter", $e->getMessage());
         }
@@ -307,7 +307,7 @@ class TechnoratiTest extends TestCase
         $this->markTestSkipped('Not getting correct url');
         $result = $this->_setResponseFromFile('TestBlogInfoSuccess.xml')->blogInfo(self::TEST_PARAM_BLOGINFO);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\BlogInfoResult', $result);
+        $this->assertInstanceOf('ZendService\Technorati\BlogInfoResult', $result);
         // content is validated in Zend_Service_Technorati_BlogInfoResult tests
     }
 
@@ -315,7 +315,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestBlogInfoError.xml')->blogInfo(self::TEST_PARAM_BLOGINFO);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Invalid request: url is required", $e->getMessage());
         }
@@ -334,7 +334,7 @@ class TechnoratiTest extends TestCase
         // when URL is not a recognized weblog
         try {
             $this->_setResponseFromFile('TestBlogInfoErrorUrlNotWeblog.xml')->blogInfo('www.simonecarletti.com');
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Technorati weblog", $e->getMessage());
         }
@@ -344,7 +344,7 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestBlogPostTagsSuccess.xml')->blogPostTags(self::TEST_PARAM_BLOGPOSTTAGS);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\TagsResultSet', $result);
+        $this->assertInstanceOf('ZendService\Technorati\TagsResultSet', $result);
         // content is validated in Zend_Service_Technorati_TagsResultSet tests
     }
 
@@ -352,7 +352,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestBlogPostTagsError.xml')->blogPostTags(self::TEST_PARAM_BLOGPOSTTAGS);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Invalid request: url is required", $e->getMessage());
         }
@@ -392,7 +392,7 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestTopTagsSuccess.xml')->topTags();
 
-        $this->assertInstanceOf('Zend\Service\Technorati\TagsResultSet', $result);
+        $this->assertInstanceOf('ZendService\Technorati\TagsResultSet', $result);
         // content is validated in Zend_Service_Technorati_TagsResultSet tests
     }
 
@@ -400,7 +400,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestTopTagsError.xml')->topTags();
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Invalid key.", $e->getMessage());
         }
@@ -433,7 +433,7 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestGetInfoSuccess.xml')->getInfo(self::TEST_PARAM_GETINFO);
 
-        $this->assertInstanceOf('Zend\Service\Technorati\GetInfoResult', $result);
+        $this->assertInstanceOf('ZendService\Technorati\GetInfoResult', $result);
         // content is validated in Zend_Service_Technorati_GetInfoResult tests
     }
 
@@ -441,7 +441,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestGetInfoError.xml')->getInfo(self::TEST_PARAM_GETINFO);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Username is a required field.", $e->getMessage());
         }
@@ -458,7 +458,7 @@ class TechnoratiTest extends TestCase
     {
         $result = $this->_setResponseFromFile('TestKeyInfoSuccess.xml')->keyInfo();
 
-        $this->assertInstanceOf('Zend\Service\Technorati\KeyInfoResult', $result);
+        $this->assertInstanceOf('ZendService\Technorati\KeyInfoResult', $result);
         // content is validated in Zend_Service_Technorati_KeyInfoResult tests
     }
 
@@ -466,7 +466,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->_setResponseFromFile('TestKeyInfoError.xml')->keyInfo();
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("Invalid key.", $e->getMessage());
         }
@@ -490,7 +490,7 @@ class TechnoratiTest extends TestCase
             $options = array_merge((array) $param, array($invalidFormatOption));
             try {
                 call_user_func_array(array($technorati, $method), $options);
-                $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+                $this->fail('Expected ZendService\Technorati\Exception not thrown');
             } catch (Technorati\Exception\RuntimeException $e) {
                 $this->assertContains("'format'", $e->getMessage());
             }
@@ -514,7 +514,7 @@ class TechnoratiTest extends TestCase
             $options = array_merge((array) $param, array($invalidOption));
             try {
                 call_user_func_array(array($technorati, $method), $options);
-                $this->fail('Expected Zend\Service\Technorati\Exception\RuntimeException not thrown');
+                $this->fail('Expected ZendService\Technorati\Exception\RuntimeException not thrown');
             } catch (Technorati\Exception\RuntimeException $e) {
                 $this->assertContains("'foo'", $e->getMessage());
             }
@@ -531,7 +531,7 @@ class TechnoratiTest extends TestCase
     {
         try {
             $this->technorati->$callbackMethod('');
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch (Technorati\Exception\RuntimeException $e) {
             $this->assertContains("'$name'", $e->getMessage());
         }

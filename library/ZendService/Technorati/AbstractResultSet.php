@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Technorati;
+namespace ZendService\Technorati;
 
 use DomDocument;
 use DOMXPath;
@@ -170,7 +170,7 @@ abstract class AbstractResultSet implements SeekableIterator
      * Implements SeekableIterator::current().
      *
      * @return  void
-     * @throws  Zend\Service\Exception
+     * @throws  ZendService\Exception
      * @abstract
      */
     // abstract public function current();

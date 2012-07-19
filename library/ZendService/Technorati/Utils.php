@@ -8,13 +8,13 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Technorati;
+namespace ZendService\Technorati;
 
 use DateTime;
 use Zend\Uri;
 
 /**
- * Collection of utilities for various Zend\Service\Technorati classes.
+ * Collection of utilities for various ZendService\Technorati classes.
  *
  * @category   Zend
  * @package    Zend_Service

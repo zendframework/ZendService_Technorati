@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -30,7 +30,7 @@ class KeyInfoResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\KeyInfoResult', array($this->dom, self::TEST_API_KEY));
+        $this->_testConstruct('ZendService\Technorati\KeyInfoResult', array($this->dom, self::TEST_API_KEY));
     }
 
     public function testKeyInfoResult()

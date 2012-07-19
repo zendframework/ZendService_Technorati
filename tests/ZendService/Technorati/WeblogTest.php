@@ -8,10 +8,10 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
 use DateTime;
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -29,7 +29,7 @@ class WeblogTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\Weblog', array($this->domElement));
+        $this->_testConstruct('ZendService\Technorati\Weblog', array($this->domElement));
     }
 
     public function testWeblog()
@@ -76,12 +76,12 @@ class WeblogTest extends TestCase
 
         // check first author
         $author = $authors[0];
-        $this->assertInstanceOf('Zend\Service\Technorati\Author', $author);
+        $this->assertInstanceOf('ZendService\Technorati\Author', $author);
         $this->assertEquals('rfilippini', $author->getUsername());
 
         // check second author, be sure it's not the first one
         $author = $authors[1];
-        $this->assertInstanceOf('Zend\Service\Technorati\Author', $author);
+        $this->assertInstanceOf('ZendService\Technorati\Author', $author);
         $this->assertEquals('Rinzi', $author->getUsername());
     }
 
@@ -171,7 +171,7 @@ class WeblogTest extends TestCase
         $set = '200ty';
         try {
             $weblog->setLastUpdate($set);
-            $this->fail('Expected Zend\Service\Technorati\Exception not thrown');
+            $this->fail('Expected ZendService\Technorati\Exception not thrown');
         } catch(\Exception $e) {
             $this->assertContains('DateTime', $e->getMessage());
         }
@@ -232,7 +232,7 @@ class WeblogTest extends TestCase
         $weblog = new Technorati\Weblog($this->domElement);
 
         $set = 'http:::/foo';
-        $this->setExpectedException('Zend\Service\Technorati\Exception\RuntimeException', 'invalid URI');
+        $this->setExpectedException('ZendService\Technorati\Exception\RuntimeException', 'invalid URI');
         $weblog->setUrl($set);
     }
 
@@ -243,7 +243,7 @@ class WeblogTest extends TestCase
         $weblog = new Technorati\Weblog($this->domElement);
 
         $set = 'http:::/foo';
-        $this->setExpectedException('Zend\Service\Technorati\Exception\RuntimeException', 'invalid URI');
+        $this->setExpectedException('ZendService\Technorati\Exception\RuntimeException', 'invalid URI');
         $weblog->setAtomUrl($set);
     }
 
@@ -254,7 +254,7 @@ class WeblogTest extends TestCase
         $weblog = new Technorati\Weblog($this->domElement);
 
         $set = 'http:::/foo';
-        $this->setExpectedException('Zend\Service\Technorati\Exception\RuntimeException', 'invalid URI');
+        $this->setExpectedException('ZendService\Technorati\Exception\RuntimeException', 'invalid URI');
         $weblog->setRssUrl($set);
     }
 }

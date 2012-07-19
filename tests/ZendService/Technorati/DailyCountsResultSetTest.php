@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class DailyCountsResultSetTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\DailyCountsResultSet', array($this->dom));
+        $this->_testConstruct('ZendService\Technorati\DailyCountsResultSet', array($this->dom));
     }
 
     public function testDailyCountsResultSet()
@@ -49,9 +49,9 @@ class DailyCountsResultSetTest extends TestCase
     public function testDailyCountsResultSetItemsInstanceOfResult()
     {
         $this->_testResultSetItemsInstanceOfResult(
-                    'Zend\Service\Technorati\DailyCountsResultSet',
+                    'ZendService\Technorati\DailyCountsResultSet',
                     array($this->dom),
-                    'Zend\Service\Technorati\DailyCountsResult');
+                    'ZendService\Technorati\DailyCountsResult');
     }
 
     public function testDailyCountsResultSetSerialization()

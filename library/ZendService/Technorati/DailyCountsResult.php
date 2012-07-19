@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Technorati;
+namespace ZendService\Technorati;
 
 use DateTime;
 use DomElement;

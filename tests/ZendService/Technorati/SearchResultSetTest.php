@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class SearchResultSetTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\SearchResultSet', array($this->dom));
+        $this->_testConstruct('ZendService\Technorati\SearchResultSet', array($this->dom));
     }
 
     public function testSearchResultSet()
@@ -45,9 +45,9 @@ class SearchResultSetTest extends TestCase
     public function testSearchResultSetItemsInstanceOfResult()
     {
         $this->_testResultSetItemsInstanceOfResult(
-                    'Zend\Service\Technorati\SearchResultSet',
+                    'ZendService\Technorati\SearchResultSet',
                     array($this->dom),
-                    'Zend\Service\Technorati\SearchResult');
+                    'ZendService\Technorati\SearchResult');
     }
 
     public function testSearchResultSetSerialization()

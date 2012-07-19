@@ -8,7 +8,7 @@
  * @package   Zend_Service
  */
 
-namespace Zend\Service\Technorati\Exception;
+namespace ZendService\Technorati\Exception;
 
 /**
  * @category   Zend

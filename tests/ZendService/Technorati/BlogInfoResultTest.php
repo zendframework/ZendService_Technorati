@@ -8,9 +8,9 @@
  * @package   Zend_Service
  */
 
-namespace ZendTest\Service\Technorati;
+namespace ZendServiceTest\Technorati;
 
-use Zend\Service\Technorati;
+use ZendService\Technorati;
 
 /**
  * @category   Zend
@@ -28,7 +28,7 @@ class BlogInfoResultTest extends TestCase
 
     public function testConstruct()
     {
-        $this->_testConstruct('Zend\Service\Technorati\BlogInfoResult', array($this->dom));
+        $this->_testConstruct('ZendService\Technorati\BlogInfoResult', array($this->dom));
     }
 
     public function testBlogInfoResult()
@@ -37,7 +37,7 @@ class BlogInfoResultTest extends TestCase
 
         // check weblog
         $weblog = $object->getWeblog();
-        $this->assertInstanceOf('Zend\Service\Technorati\Weblog', $weblog);
+        $this->assertInstanceOf('ZendService\Technorati\Weblog', $weblog);
         $this->assertEquals('Simone Carletti\'s Blog', $weblog->getName());
 
         // check url
