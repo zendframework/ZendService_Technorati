@@ -14,6 +14,7 @@ use DomDocument;
 use DOMXPath;
 use OutOfBoundsException;
 use SeekableIterator;
+use ZendXml\Security as XmlSecurity;
 
 /**
  * This is the most essential result set.
@@ -270,7 +271,7 @@ abstract class AbstractResultSet implements SeekableIterator
     public function __wakeup()
     {
         $dom = new DOMDocument();
-        $dom->loadXml($this->xml);
+        $dom = XmlSecurity::scan($this->xml, $dom);
         $this->init($dom);
         $this->xml = null; // reset XML content
     }
